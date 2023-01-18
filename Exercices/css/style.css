@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+    background-color: #000;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    overflow:auto;
+    margin-top: 5%;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 15px;
+    text-align: center;
+    font-style: italic;
+}
+
+h3 {
+    font-size: 12px;
+    text-align: center;
+}
+
+p {
+    font-size: 12px;
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10%;
+}
+
+.theme {
+    margin-left: 50px;
+    font-size: 24px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.explaination {
+    font-size: 15px;
+    margin: 5%;
+}
+
+.copyright {
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+    margin-top: 5%;
+}

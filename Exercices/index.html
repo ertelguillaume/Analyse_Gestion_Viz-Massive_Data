@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <title>Analyse, gestion et visualisation de données massives</title>
+</head>
+<body>
+    <h1>Exercice 1 : Big Data & High Dimension</h1>
+    <h2>Guillaume Ertel - M2 NET</h2>
+    <h3>Lundi 16/01/2023</h3>
+
+    <p class="theme">Thème - peintres</p>
+
+    <p>
+        Code de la requête Big Data :
+        <pre>
+            <code>
+                SELECT ?painterLabel ?point_in_time ?date_of_death ?movementLabel WHERE {
+                SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+                ?painter wdt:P106 wd:Q1028181.
+                ?painter wdt:P569 ?point_in_time. 
+                ?painter wdt:P570 ?date_of_death. 
+                ?painter wdt:P135 ?movement. 
+                }
+                LIMIT 2000
+            </code>
+        </pre>
+    </p>
+
+    <p align="center"><iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20%3FpainterLabel%20%3Fpoint_in_time%20%3Fdate_of_death%20%3FmovementLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fpainter%20wdt%3AP106%20wd%3AQ1028181.%0A%20%20%20%3Fpainter%20wdt%3AP569%20%3Fpoint_in_time.%20%0A%20%20%20%3Fpainter%20wdt%3AP570%20%3Fdate_of_death.%20%0A%20%20%20%3Fpainter%20wdt%3AP135%20%3Fmovement.%20%0A%7D%0ALIMIT%202000" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></p>
+
+    <p>
+        Code de la requête High Dimension :
+        <pre>
+            <code>
+                SELECT ?painterLabel ?point_in_time ?date_of_death ?movementLabel ?sex_or_genderLabel ?given_nameLabel ? <br>                work_locationLabel ?country_of_citizenshipLabel ?artist_files_atLabel ?member_ofLabel ?image WHERE {
+                SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+                ?painter wdt:P106 wd:Q1028181;
+                    wdt:P569 ?point_in_time;
+                    wdt:P570 ?date_of_death;
+                    wdt:P135 ?movement.
+                    ?painter wdt:P21 ?sex_or_gender.
+                    ?painter wdt:P735 ?given_name.
+                    ?painter wdt:P937 ?work_location.
+                    ?painter wdt:P27 ?country_of_citizenship.
+                    ?painter wdt:P9493 ?artist_files_at.
+                    ?painter wdt:P463 ?member_of.
+                    ?painter wdt:P18 ?image.
+                }
+                LIMIT 100
+            </code>
+        </pre>
+    </p>
+
+    <p align="center"><iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20%3FpainterLabel%20%3Fpoint_in_time%20%3Fdate_of_death%20%3FmovementLabel%20%3Fsex_or_genderLabel%20%3Fgiven_nameLabel%20%3Fwork_locationLabel%20%3Fcountry_of_citizenshipLabel%20%3Fartist_files_atLabel%20%3Fmember_ofLabel%20%3Fimage%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fpainter%20wdt%3AP106%20wd%3AQ1028181%3B%0A%20%20%20%20wdt%3AP569%20%3Fpoint_in_time%3B%0A%20%20%20%20wdt%3AP570%20%3Fdate_of_death%3B%0A%20%20%20%20wdt%3AP135%20%3Fmovement.%0A%20%20%20%20%3Fpainter%20wdt%3AP21%20%3Fsex_or_gender.%0A%20%20%20%20%3Fpainter%20wdt%3AP735%20%3Fgiven_name.%0A%20%20%20%20%3Fpainter%20wdt%3AP937%20%3Fwork_location.%0A%20%20%20%20%3Fpainter%20wdt%3AP27%20%3Fcountry_of_citizenship.%0A%20%20%20%20%3Fpainter%20wdt%3AP9493%20%3Fartist_files_at.%0A%20%20%20%20%3Fpainter%20wdt%3AP463%20%3Fmember_of.%0A%20%20%20%20%3Fpainter%20wdt%3AP18%20%3Fimage.%0A%7D%0ALIMIT%20100" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></p>
+
+    <p class="explaination">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi sapiente accusantium itaque laudantium possimus vero facere placeat consectetur nulla? Eligendi esse fuga culpa iste dignissimos dolores doloribus asperiores nobis praesentium.
+    </p>
+
+    <p align="center"><iframe style='width: 637px; height: 483px;' src='https://voyant-tools.org/tool/Trends/?query=said&query=alice&query=little&query=know&query=like&mode=document&corpus=75d05e749f4061a27192ab7d384b1cdf'></iframe></p>
+
+
+    <p class="explaination">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi sapiente accusantium itaque laudantium possimus vero facere placeat consectetur nulla? Eligendi esse fuga culpa iste dignissimos dolores doloribus asperiores nobis praesentium.
+    </p>
+
+    <p align="center"><iframe style='width: 857px; height: 481px;' src='https://voyant-tools.org/tool/Mandala/?query=witches&query=devil&query=said&query=god&query=men&query=man&query=devils&query=heresy&query=case&query=shall&corpus=a9586ab7d3c3d45faedd23aac1b29f11'></iframe></p>
+
+    <p class="copyright">Copyright : no copyright</p>
+
+</body>
+</html>
